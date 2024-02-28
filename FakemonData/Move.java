@@ -1,9 +1,10 @@
 package States.FakemonData;
 
 public class Move{
-    private String moveName;
-    private int chance;
-    private int damage;
+    private final String moveName;
+    private final int chance;
+    private final int damage;
+
     public Move(String moveName, int chance, int damage){
         this.moveName = moveName;
         this.chance = chance;
