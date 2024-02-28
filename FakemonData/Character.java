@@ -3,16 +3,24 @@ package States.FakemonData;
 import java.util.*;
 
 public class Character {
-    private ArrayList<Fakemon> userList;
-    private String characterName;
+    private ArrayList<Fakemon> fakemonsList;
+    private ArrayList<Items> inventory;
+    private final String characterName;
 
     public Character(String characterName){
         this.characterName = characterName;
-        userList = new ArrayList<Fakemon>();
+        fakemonsList = new ArrayList<>();
+        inventory = new ArrayList<>();
+    }
+
+    public Character(String characterName, ArrayList<Fakemon> opponentFakemon, ArrayList<Items> possibleDrops){
+        this.characterName = characterName;
+        fakemonsList = opponentFakemon;
+        inventory = possibleDrops;
     }
 
     public ArrayList<Fakemon> getUserList(){
-        return userList;
+        return fakemonsList;
     }
 
     public String getCharacterName(){
@@ -20,9 +28,7 @@ public class Character {
     }
 
     public void caughtFakemon(Fakemon caught){
-        userList.add(caught);
+        fakemonsList.add(caught);
     }
-
-    public void
 
 }
