@@ -1,16 +1,16 @@
 package States.FakemonData;
 
-import java.util.HashMap;
-
 public class Move{
     private final String moveName;
     private final int chance;
     private final int damage;
+    private final String elemental;
 
-    public Move(String moveName, int chance, int damage){
+    public Move(String moveName, int chance, int damage, String elemental){
         this.moveName = moveName;
         this.chance = chance;
         this.damage = damage;
+        this.elemental = elemental;
     }
 
     public int getDamage(){
@@ -25,6 +25,7 @@ public class Move{
         return moveName;
     }
 
+    public String getElemental(){return elemental;}
     @Override
     public String toString(){
         return moveName + "\n" + damage + damage + "\n" + "Chance of hitting: " + chance;
