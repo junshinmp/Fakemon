@@ -33,22 +33,20 @@ public class Fakemon{
         uniqueID++;
     }
 
-    public int getHealth(){
-        return health;
-    }
+    public int getHealth(){return health;}
 
     public String getElement(){return element;}
 
     public int getLevel(){return level;}
 
-    public void addMove(String learnedMove, Move move){
-        moveList.put(learnedMove, move);
-    }
+    public void addMove(String learnedMove, Move move){moveList.put(learnedMove, move);}
 
     public int useMove(String moveName) {
         System.out.println(fakemonName + " used " + moveName + "!\nIt did " + moveList.get(moveName).getDamage() + "!");
         return moveList.get(moveName).getDamage();
     }
+
+    public int getId(){return id;}
 
     public void xpGain(int amt){
         int surplus;
