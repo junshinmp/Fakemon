@@ -2,7 +2,6 @@ package States.FakemonData;
 
 import java.util.*;
 
-import com.sun.source.tree.Tree;
 import javafx.scene.image.Image;
 
 public class Fakemon{
@@ -15,14 +14,18 @@ public class Fakemon{
     private int xp;
     private int level;
     private int next_level_xp;
-    private int id;
+    private final int id;
     private String fakemonName;
-    private String elemental;
+    private final String elemental;
+    private boolean fainted;
     private TreeMap<String, Move> moveList;
 
-    public Fakemon(String fakemonName, int health){
+    public Fakemon(String fakemonName, int health, String elemental){
         this.fakemonName = fakemonName;
         this.health = health;
+        this.elemental = elemental;
+
+        fainted = false;
         level = INITIAL_LEVEL;
         xp = STARTING_XP;
         next_level_xp = NEXT_LEVEL_XP;
@@ -31,12 +34,22 @@ public class Fakemon{
         uniqueID++;
     }
 
-    public int getHealth(){
-        return health;
-    }
+    public int getHealth(){return health;}
 
-    public void addMove(String learnedMove){
-        moveList.put(learnedMove, )
+    public String getElemental(){return elemental;}
+
+    public boolean isFainted(){return fainted;}
+
+    public void learnMove(String moveName, Move add){moveList.put(moveName, add);}
+
+    public String takeDamage(int damage){
+        if(health - damage == 0){
+            health = 0;
+            fainted = true;
+            return fakemonName + " has fainted!";
+        }
+        health -= damage;
+        return fakemonName + "is now at " + health;
     }
 
     public int useMove(String moveName) {
