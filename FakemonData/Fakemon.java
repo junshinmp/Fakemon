@@ -15,14 +15,16 @@ public class Fakemon{
     private int xp;
     private int level;
     private int next_level_xp;
-    private int id;
-    private String fakemonName;
-    private String elemental;
+    private final int id;
+    private final String fakemonName;
+    private final String element;
     private TreeMap<String, Move> moveList;
 
-    public Fakemon(String fakemonName, int health){
+    public Fakemon(String fakemonName, int health, String element){
         this.fakemonName = fakemonName;
         this.health = health;
+        this.element = element;
+
         level = INITIAL_LEVEL;
         xp = STARTING_XP;
         next_level_xp = NEXT_LEVEL_XP;
@@ -35,8 +37,12 @@ public class Fakemon{
         return health;
     }
 
-    public void addMove(String learnedMove){
-        moveList.put(learnedMove, )
+    public String getElement(){return element;}
+
+    public int getLevel(){return level;}
+
+    public void addMove(String learnedMove, Move move){
+        moveList.put(learnedMove, move);
     }
 
     public int useMove(String moveName) {
